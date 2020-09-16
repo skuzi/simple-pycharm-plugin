@@ -4,3 +4,7 @@
 formatting:
   Indentation:
     active: true
+
+complexity:
+  ComplexCondition:
+    threshold: 10
