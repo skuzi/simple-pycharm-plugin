@@ -1,8 +1,6 @@
 # simple-pycharm-plugin
 
 ![Build](https://github.com/skuzi/simple-pycharm-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
 <!-- Plugin description -->
 This plugin contains inspections for not annotated variable declaration (such as in assignments or in function parameter list) and fixes that annotate such variables (for now it offers to add `str` annotation to single variable declaration and `int` annotation to all function parameters without annotations)
