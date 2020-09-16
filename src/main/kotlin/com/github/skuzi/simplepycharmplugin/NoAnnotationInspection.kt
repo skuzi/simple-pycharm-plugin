@@ -8,6 +8,7 @@ import com.jetbrains.python.inspections.PyInspection
 import com.jetbrains.python.psi.PyAssignmentStatement
 import com.jetbrains.python.psi.PyElementVisitor
 import com.jetbrains.python.psi.PyFunction
+import com.jetbrains.python.psi.PyTupleExpression
 
 /**
  * Inspection to detect variable declarations without type annotations
@@ -22,7 +23,7 @@ class NoAnnotationInspection : PyInspection() {
             override fun visitElement(element: PsiElement) {
                 super.visitElement(element)
 
-                if (element is PyAssignmentStatement && element.annotationValue == null) {
+                if (element is PyAssignmentStatement && element.annotationValue == null && isSingleVariable(element)) {
                     holder.registerProblem(element, DESCRIPTION, AssignmentQuickFix())
                     return
                 }
@@ -38,5 +39,9 @@ class NoAnnotationInspection : PyInspection() {
                 }
             }
         }
+    }
+
+    private fun isSingleVariable(element: PyAssignmentStatement): Boolean {
+        return element.rawTargets.size == 1 && element.leftHandSideExpression !is PyTupleExpression
     }
 }
