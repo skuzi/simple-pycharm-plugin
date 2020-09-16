@@ -32,7 +32,7 @@ class ParametersListQuickFix : LocalQuickFix {
                 generator.createParameter(
                     it.name!!,
                     it.defaultValueText,
-                    "int",
+                    it.asNamed?.annotationValue?:"int",
                     LanguageLevel.PYTHON38
                 )
             )
