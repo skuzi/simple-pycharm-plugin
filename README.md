@@ -4,35 +4,26 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/publishing_plugin.html) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
-
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+This plugin contains inspections for not annotated variable declaration (such as in assignments or in function parameter list) and fixes that annotate such variables (for now it offers to add `str` annotation to single variable declaration and `int` annotation to all function parameters without annotations)
 
 This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
 <!-- Plugin description end -->
 
 ## Installation
-
-- Using IDE built-in plugin system:
   
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "simple-pycharm-plugin"</kbd> >
-  <kbd>Install Plugin</kbd>
+- For debug purposes:
+  1. Clone this repository to device
+  2. Move to folder where repository was cloned to
+  3. Run `./gradlew runIde`
+  4. If plugin was launched first time, wait for resources to download
+  5. Now, if caret is placed at some not annotated variable declaration and `Alt+Enter` is pressed, warning window should open and offer to annotate such variable (or all variables in function parameter list)
   
-- Manually:
-
-  Download the [latest release](https://github.com/skuzi/simple-pycharm-plugin/releases/latest) and install it manually using
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
+  
+- Requirements:
+  - Java 8
+  - Python 3.8
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
