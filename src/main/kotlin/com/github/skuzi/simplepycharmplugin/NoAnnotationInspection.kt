@@ -23,7 +23,11 @@ class NoAnnotationInspection : PyInspection() {
             override fun visitElement(element: PsiElement) {
                 super.visitElement(element)
 
-                if (element is PyAssignmentStatement && element.annotationValue == null && isSingleVariable(element)) {
+                if (element is PyAssignmentStatement &&
+                    element.annotationValue == null &&
+                    isSingleVariable(element) &&
+                    element.assignedValue != null
+                ) {
                     holder.registerProblem(element, DESCRIPTION, AssignmentQuickFix())
                     return
                 }
