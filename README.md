@@ -15,7 +15,7 @@ This specific section is a source for the [plugin.xml](/src/main/resources/META-
   1. Clone this repository to device
   2. Move to folder where repository was cloned to
   3. Run `./gradlew runIde`
-  4. If plugin was launched first time, wait for resources to download
+  4. If plugin was launched first time, wait for resources to download and then for PyCharm to launch
   5. Now, if caret is placed at some not annotated variable declaration and `Alt+Enter` is pressed, warning window should open and offer to annotate such variable (or all variables in function parameter list)
   
   
